@@ -1,0 +1,9 @@
+{
+    "name": "ds-poc-styling",
+    "version": "0.0.1",
+    "description": "ds-poc-styling",
+    "repository": {
+        "type": "git"
+    },
+    "files": ["dist/"]
+}
