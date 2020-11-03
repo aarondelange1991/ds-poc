@@ -24,7 +24,7 @@
         "styling:build": "postcss styling/styles.css -o styling/dist/ds-poc-styling.css -c styling/tailwind.config.js",
         "styling:publish": "npm run styling:build && cd styling && npm publish",
         "azure:build": "npm install && npm run styling:build && npm run components:build && npm run storybook:build",
-        "chromatic": "npx chromatic --project-token ibqdlxk3otk"
+        "chromatic": "npx chromatic --project-token ibqdlxk3otk  --exit-zero-on-changes"
     },
     "dependencies": {},
     "license": "MIT",
