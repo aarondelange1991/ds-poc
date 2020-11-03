@@ -10,22 +10,20 @@
     "collection": "dist/collection/collection-manifest.json",
     "collection:main": "dist/collection/index.js",
     "unpkg": "dist/basic-design-system/basic-design-system.js",
-    "files": [
-        "dist/",
-        "loader/"
-    ],
+    "files": ["dist/", "loader/"],
     "scripts": {
-        "build": "stencil build --docs",
-        "build.watch": "stencil build --watch",
+        "components:build": "stencil build --docs",
+        "components:build.watch": "stencil build --watch",
+        "components:generate": "stencil generate",
+        "components:start": "stencil build --dev --watch --serve",
+        "components:test": "stencil test --spec --e2e",
+        "components:test.watch": "stencil test --spec --e2e --watchAll",
         "format": "pretty-quick staged",
-        "start": "stencil build --dev --watch --serve",
-        "test": "stencil test --spec --e2e",
-        "test.watch": "stencil test --spec --e2e --watchAll",
-        "generate": "stencil generate",
-        "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook",
+        "storybook:build": "build-storybook",
+        "storybook:start": "start-storybook -p 6006",
         "styling:build": "postcss styling/styles.css -o styling/dist/ds-poc-styling.css -c styling/tailwind.config.js",
-        "styling:publish": "npm run styling:build && cd styling && npm publish"
+        "styling:publish": "npm run styling:build && cd styling && npm publish",
+        "azure:build": "npm install && npm run styling:build && npm run components:build && npm run storybook:build"
     },
     "dependencies": {},
     "license": "MIT",
@@ -40,6 +38,7 @@
         "@storybook/addon-viewport": "^6.0.28",
         "@storybook/web-components": "^6.0.27",
         "@types/node": "^13.13.13",
+        "@types/jest": "^26.0.15",
         "babel-loader": "^8.1.0",
         "babel-plugin-macros": "^2.8.0",
         "lit-html": "^1.3.0",
@@ -60,9 +59,6 @@
         }
     },
     "lint-staged": {
-        "*": [
-            "pretty-quick",
-            "git add"
-        ]
+        "*": ["pretty-quick", "git add"]
     }
 }

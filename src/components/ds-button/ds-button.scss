@@ -1,0 +1,23 @@
+:host {
+    display: inline-block;
+}
+
+div.button-container {
+    padding: 8px 16px 8px 16px;
+    border-radius: $borderRadius-default;
+    cursor: pointer;
+
+    &-disabled {
+        cursor: not-allowed;
+    }
+}
+
+div.button-container-primary {
+    background-color: $colors-primary;
+    color: white;
+}
+
+div.button-container-secondary {
+    color: $colors-secondary;
+    text-decoration: underline;
+}

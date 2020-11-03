@@ -8,12 +8,13 @@ defineCustomElements();
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
-  viewport: {
-    viewports: customViewports,
-    defaultViewport: 'xl',
-  },
+    viewport: {
+        viewports: customViewports,
+        defaultViewport: 'xl',
+    },
     options: {
         enableShortcuts: false,
+
         showRoots: true,
         storySort: sortEachDepth([
             [
