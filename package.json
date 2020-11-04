@@ -1,5 +1,5 @@
 {
-    "name": "ds-poc-components",
+    "name": "@ordina/ds-poc-components",
     "version": "0.0.1",
     "description": "Stencil Component Starter",
     "main": "dist/index.cjs.js",
@@ -10,16 +10,22 @@
     "collection": "dist/collection/collection-manifest.json",
     "collection:main": "dist/collection/index.js",
     "unpkg": "dist/basic-design-system/basic-design-system.js",
-    "files": ["dist/", "loader/"],
+    "files": [
+        "dist/",
+        "loader/"
+    ],
     "scripts": {
+        "all:publish": "npm run styling:build && npm run styling:publish && npm run components:build && npm run components:publish",
         "components:build": "stencil build --docs",
         "components:build.watch": "stencil build --watch",
         "components:generate": "stencil generate",
+        "components:publish": "npm publish",
         "components:start": "stencil build --dev --watch --serve",
         "components:test": "stencil test --spec --e2e",
         "components:test.watch": "stencil test --spec --e2e --watchAll",
         "format": "pretty-quick staged",
         "storybook:build": "build-storybook",
+        "storybook:publish": "npm run styling:build && npm run components:build && npm run storybook:build && storybook-to-ghpages",
         "storybook:start": "start-storybook -p 6006",
         "styling:build": "postcss styling/styles.css -o styling/dist/ds-poc-styling.css -c styling/tailwind.config.js",
         "styling:publish": "npm run styling:build && cd styling && npm publish",
@@ -37,6 +43,7 @@
         "@storybook/addon-essentials": "^6.0.27",
         "@storybook/addon-links": "^6.0.27",
         "@storybook/addon-viewport": "^6.0.28",
+        "@storybook/storybook-deployer": "^2.8.7",
         "@storybook/web-components": "^6.0.27",
         "@types/jest": "^26.0.15",
         "@types/node": "^13.13.13",
@@ -61,6 +68,9 @@
         }
     },
     "lint-staged": {
-        "*": ["pretty-quick", "git add"]
+        "*": [
+            "pretty-quick",
+            "git add"
+        ]
     }
 }
